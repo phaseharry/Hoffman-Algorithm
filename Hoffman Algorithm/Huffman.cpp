@@ -9,37 +9,51 @@ Huffman::Huffman(string str) {
 	encode(str);
 }
 
+// Encodes the string by making a Huffman tree and turning the string into a encoded binary string 
 void Huffman::encode(string str) {
 	buildCharacterMap(str);
-	//printFrequenciesMap();
 	buildMinHeap();
 	buildHuffmanTree();
-	//printHuffmanTree();
+	encodedString = encodeString(str);
 }
 
+string Huffman::encodeString(string str) {
+	string encoding = "";
+	for (int i = 0; i < str.length(); i++) {
+		encoding += characterMap.at(str[i]).code;
+	}
+	return encoding;
+}
+
+void Huffman::decode() {
+	string decodeString = "";
+	int i = 0;
+	while (i < encodedString.length()) {
+
+	}
+}
+
+// Helper method to build the min heap used to build the Huffman Tree
 void Huffman::buildMinHeap() {
 	for (auto itr = characterMap.begin(); itr != characterMap.end(); itr++) {
 		struct Node *charNode = &itr->second;
 		minHeap.push(charNode);
 	}
 }
+
+// Builds the Huffman Tree and then assigns the code to the Character Nodes
 void Huffman::buildHuffmanTree() {
 	struct Node *left, *right, *top;
 	while (minHeap.size() != 1) {
 		left = minHeap.top(); minHeap.pop();
 		right = minHeap.top(); minHeap.pop();
-		//cout << left->character << ": " << left->frequency << endl;
-		//cout << right->character << ": " << right->frequency << endl;
 		top = new Node('$', left->frequency + right->frequency);
-		//cout << top->character << ": " << top->frequency << endl;
 		top->left = left;
 		top->right = right;
-		//cout << "top left: " << top->left->character << endl;
-	 	//cout << "top right: " << top->right->character << endl << endl;
 		minHeap.push(top);
 	}
-	//cout << "ROOT NODE: " << minHeap.top()->character << ": " << minHeap.top()->frequency << endl;
-	printHuffmanCode(minHeap.top(), "");
+	huffmanTree = minHeap.top();
+	assignHuffmanCodeToChar(huffmanTree, "");
 }
 
 // Store the frequency count of all unique characters in a map
@@ -63,7 +77,7 @@ void Huffman::printFrequenciesMap() const {
 	for (auto itr = characterMap.begin(); itr != characterMap.end(); itr++) {
 		char character = itr->first;
 		struct Node charNode = itr->second;
-		cout << character << ": " << charNode.frequency << endl;
+		cout << character << ": " << charNode.frequency << " and code: " << charNode.code << endl;
 	}
 }
 
@@ -76,14 +90,19 @@ void Huffman::printMinHeapVals() {
 	cout << endl;
 }
 
-void Huffman::printHuffmanCode(struct Node* node, string str) const {
-	if (node->left) printHuffmanCode(node->left, str + "0");
-	if (node->right) printHuffmanCode(node->right, str + "1");
+// After building the Huffman Tree, go to its leaf nodes to the characters
+// and assign the character node's code 
+void Huffman::assignHuffmanCodeToChar(struct Node* node, string str) {
+	if (node->left) assignHuffmanCodeToChar(node->left, str + "0");
+	if (node->right) assignHuffmanCodeToChar(node->right, str + "1");
 	if (!node->left && !node->right) {
 		cout << node->character << ": " << str << endl;
+		struct Node *charNode = &characterMap.at(node->character);
+		charNode->code = str;
 	}
 }
 
+// Helper that presents the Human Tree level by level
 void Huffman::printHuffmanTree() const {
 	Node *rootNode = minHeap.top();
 	vector<Node*> level{ rootNode };

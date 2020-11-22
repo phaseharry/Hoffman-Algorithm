@@ -7,7 +7,7 @@ string useBasicTest();
 
 int main() {
 	Huffman run = Huffman(useBasicTest());
-	//run.printFrequenciesMap();
+	run.decode();
 	return 0;
 }
 

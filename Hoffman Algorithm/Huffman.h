@@ -11,6 +11,7 @@ using namespace std;
 struct Node {
 	char character;
 	int frequency;
+	string code;
 	struct Node *left, *right;
 	Node(char ch) {
 		character = ch;
@@ -34,20 +35,23 @@ struct CompareCharNodes {
 class Huffman {
 	private:
 		struct Node *root;
+		string encodedString;
 		// allows incrementing a node's frequency if a specific character node has been added already
 		unordered_map<char, Node> characterMap;
-		// bool compare(Node const& n1, Node const& n2);
 		priority_queue<Node*, vector<Node*>, CompareCharNodes> minHeap;
+		Node* huffmanTree;
 		void buildCharacterMap(string str);
 		void buildHuffmanTree();
 		void buildMinHeap();
+		void assignHuffmanCodeToChar(struct Node* node, string str);
+		string encodeString(string str);
 	public:
 		Huffman(string str);
 		void encode(string str);
-		void printFrequenciesMap() const;
+		void decode();
 		void printMinHeapVals();
+		void printFrequenciesMap() const;
 		void printHuffmanTree() const;
-		void printHuffmanCode(struct Node* node, string str) const;
 };
 
 #endif
