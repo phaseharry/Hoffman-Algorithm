@@ -34,22 +34,25 @@ struct CompareCharNodes {
 
 class Huffman {
 	private:
-		struct Node *root;
 		string encodedString;
 		// allows incrementing a node's frequency if a specific character node has been added already
 		unordered_map<char, Node> characterMap;
 		priority_queue<Node*, vector<Node*>, CompareCharNodes> minHeap;
 		Node* huffmanTree;
+		string fileName;
 		void buildCharacterMap(string str);
 		void buildHuffmanTree();
 		void buildMinHeap();
+		void writeEncodedStringToFile();
+		void writeDecodedStringToFile();
 		void assignHuffmanCodeToChar(struct Node* node, string str);
 		string encodeString(string str);
-		char decodeHelper(int &idx);
+		char decodeHelper(string str, int &idx);
 	public:
-		Huffman(string str);
+		Huffman();
 		void encode(string str);
-		string decode();
+		string decode(string str);
+		void run(string str, string fileName);
 		void printMinHeapVals();
 		void printFrequenciesMap() const;
 		void printHuffmanTree() const;

@@ -2,12 +2,21 @@
 #include <queue>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <stack>  
 
 using namespace std;
 
-Huffman::Huffman(string str) {
+Huffman::Huffman() {}
+
+void Huffman::run(string str, string file) {
+	encodedString = "";
+	huffmanTree = NULL;
+	characterMap.clear();
+	minHeap = priority_queue<Node*, vector<Node*>, CompareCharNodes>();
+	fileName = file;
 	encode(str);
+	//decode(encodedString);
 }
 
 // Encodes the string by making a Huffman tree and turning the string into a encoded binary string 
@@ -18,6 +27,8 @@ void Huffman::encode(string str) {
 	printFrequenciesMap();
 	printHuffmanTree();
 	encodedString = encodeString(str);
+	writeEncodedStringToFile();
+	writeDecodedStringToFile();
 }
 
 // Encodes a given string once a Huffman Tree has been built
@@ -30,18 +41,18 @@ string Huffman::encodeString(string str) {
 }
 
 // Decodes the encoded string
-string Huffman::decode() {
+string Huffman::decode(string str) {
 	string decodedString = "";
 	int i = 0;
 	while (i < encodedString.length()) {
-		decodedString += decodeHelper(i);
+		decodedString += decodeHelper(str, i);
 	}
 	cout << decodedString << endl;
 	return decodedString;
 }
 
 // Returns a character once we finished a Huffman code traversal
-char Huffman::decodeHelper(int &idx) {
+char Huffman::decodeHelper(string str, int &idx) {
 	struct Node* currentNode = huffmanTree;
 	stack<Node*> huffmanStack;
 	huffmanStack.push(huffmanTree);
@@ -54,9 +65,9 @@ char Huffman::decodeHelper(int &idx) {
 		}
 		// go left if the current encoded character == 0, 
 		// else if it equals 1, go right
-		if (encodedString[idx] == '0') {
+		if (str[idx] == '0') {
 			huffmanStack.push(currentNode->left);
-		} else if (encodedString[idx] == '1') {
+		} else if (str[idx] == '1') {
 			huffmanStack.push(currentNode->right);
 		}
 		idx++;
@@ -102,6 +113,60 @@ void Huffman::buildCharacterMap(string str) {
 	}
 }
 
+// After building the Huffman Tree, go to its leaf nodes to the characters and assign the character node's code 
+void Huffman::assignHuffmanCodeToChar(struct Node* node, string str) {
+	if (node->left) assignHuffmanCodeToChar(node->left, str + "0");
+	if (node->right) assignHuffmanCodeToChar(node->right, str + "1");
+	if (!node->left && !node->right) {
+		//cout << node->character << ": " << str << endl;
+		struct Node *charNode = &characterMap.at(node->character);
+		charNode->code = str;
+	}
+}
+
+// Writes the encoded string into an output file
+void Huffman::writeEncodedStringToFile() {
+	ofstream outputFile("encoded-files/" + fileName + ".huf", ios::out | ios::binary);
+	if (!outputFile) {
+		cout << "Cannot open file" << endl;
+		return;
+	}
+	for (int i = 0; i < encodedString.length(); i++) {
+		outputFile << encodedString[i];
+	}
+	outputFile.close();
+}
+
+// Reads from the encoded file and decodes it and writes it the '/decoded-files' path
+void Huffman::writeDecodedStringToFile() {
+	// Read in the encoded file
+	ifstream encodedFile("encoded-files/" + fileName);
+	string text = "";
+	if (encodedFile.is_open()) {
+		string line = "";
+		while (getline(encodedFile, line)) {
+			text += line;
+		}
+		encodedFile.close();
+	}
+	// Decode the string using the Huffman Tree
+	string decodedString = "";
+	int i = 0;
+	while (i < text.length()) {
+		decodedString += decodeHelper(text, i);
+	}
+	// Output it again to verify that it is the same text as the original input
+	ofstream outputFile("decoded-files/" + fileName, ios::out | ios::binary);
+	if (!outputFile) {
+		cout << "Cannot open file" << endl;
+		return;
+	}
+	for (int i = 0; i < encodedString.length(); i++) {
+		outputFile << encodedString[i];
+	}
+	outputFile.close();
+}
+
 // Used for testing purposes to ensure that we have the right count of characters mapped to the correct character
 void Huffman::printFrequenciesMap() const {
 	for (auto itr = characterMap.begin(); itr != characterMap.end(); itr++) {
@@ -118,17 +183,6 @@ void Huffman::printMinHeapVals() {
 		minHeap.pop();
 	}
 	cout << endl;
-}
-
-// After building the Huffman Tree, go to its leaf nodes to the characters and assign the character node's code 
-void Huffman::assignHuffmanCodeToChar(struct Node* node, string str) {
-	if (node->left) assignHuffmanCodeToChar(node->left, str + "0");
-	if (node->right) assignHuffmanCodeToChar(node->right, str + "1");
-	if (!node->left && !node->right) {
-		//cout << node->character << ": " << str << endl;
-		struct Node *charNode = &characterMap.at(node->character);
-		charNode->code = str;
-	}
 }
 
 // Helper that presents the Human Tree level by level
