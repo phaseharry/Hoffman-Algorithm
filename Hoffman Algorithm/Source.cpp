@@ -1,12 +1,22 @@
 #include "Huffman.h"
 #include <string>
+#include <fstream>
 
 using namespace std;
 
 string useBasicTest();
 
 int main() {
-	Huffman run = Huffman(useBasicTest());
+	string text = "";
+	ifstream file("DNC2004.txt");
+	if (file.is_open()) {
+		string line = "";
+		while (getline(file, line)) {
+			text += line;
+		}
+		file.close();
+	}
+	Huffman run = Huffman(text);
 	run.decode();
 	return 0;
 }

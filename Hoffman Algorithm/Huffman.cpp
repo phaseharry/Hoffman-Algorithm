@@ -15,6 +15,8 @@ void Huffman::encode(string str) {
 	buildCharacterMap(str);
 	buildMinHeap();
 	buildHuffmanTree();
+	printFrequenciesMap();
+	printHuffmanTree();
 	encodedString = encodeString(str);
 }
 
