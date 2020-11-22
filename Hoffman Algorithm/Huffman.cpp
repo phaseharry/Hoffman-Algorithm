@@ -6,31 +6,92 @@
 using namespace std;
 
 Huffman::Huffman(string str) {
-	buildCharacterMap(str);
+	encode(str);
 }
 
+void Huffman::encode(string str) {
+	buildCharacterMap(str);
+	//printFrequenciesMap();
+	buildMinHeap();
+	buildHuffmanTree();
+}
+
+void Huffman::buildMinHeap() {
+	for (auto itr = characterMap.begin(); itr != characterMap.end(); itr++) {
+		struct Node *charNode = &itr->second;
+		minHeap.push(charNode);
+	}
+}
+void Huffman::buildHuffmanTree() {
+	struct Node *left, *right, *top;
+	while (minHeap.size() != 1) {
+		left = minHeap.top(); minHeap.pop();
+		right = minHeap.top(); minHeap.pop();
+		cout << left->character << ": " << left->frequency << endl;
+		cout << right->character << ": " << right->frequency << endl << endl;
+		top = new Node('$', left->frequency + right->frequency);
+		//cout << top->character << ": " << top->frequency << endl;
+		top->left = left;
+		top->right = right;
+		minHeap.push(top);
+	}
+	printHuffmanCode(minHeap.top(), "");
+}
+
+// Store the frequency count of all unique characters in a map
 void Huffman::buildCharacterMap(string str) {
 	for (int i = 0; i < str.length(); i++) {
-		updateCharFrequency(str[i]);
+		char character = str[i];
+		// if it is not in our HashTable, then create a node and have it mapped to that character
+		// else increment the frequency count the node's frequency
+		if (characterMap.find(character) == characterMap.end()) {
+			struct Node charNode = Node(character);
+			characterMap.insert({ character, charNode });
+		} else {
+			struct Node *charNode = &characterMap.at(character);
+			charNode->frequency += 1;
+		}
 	}
 }
 
-void Huffman::updateCharFrequency(char character) {
-	// if it is not in our HashTable, then create a node and have it mapped to that character
-	// else increment the frequency count the node's frequency
-	if (characterMap.find(character) == characterMap.end()) {
-		struct Node charNode = Node(character);
-		characterMap.insert({ character, charNode });
-	} else {
-		struct Node *charNode = &characterMap.at(character);
-		charNode->frequency += 1;
-	}
-}
-
+// Used for testing purposes to ensure that we have the right count of characters mapped to the correct character
 void Huffman::printFrequenciesMap() const {
 	for (auto itr = characterMap.begin(); itr != characterMap.end(); itr++) {
 		char character = itr->first;
 		struct Node charNode = itr->second;
 		cout << character << ": " << charNode.frequency << endl;
+	}
+}
+
+// Used for testing purposes to ensure that our minHeap was correctly ordered
+void Huffman::printMinHeapVals() {
+	while (!minHeap.empty()) {
+		cout << minHeap.top()->character << ": " << minHeap.top()->frequency << endl;
+		minHeap.pop();
+	}
+	cout << endl;
+}
+
+void Huffman::printHuffmanCode(struct Node* node, string str) const {
+	if (node->left != NULL) printHuffmanCode(node->left, str + "0");
+	if (node->right != NULL) printHuffmanCode(node->right, str + "1");
+	if (node->left == NULL && node->right == NULL) {
+		cout << node->character << ": " << str << endl;
+	}
+}
+
+void Huffman::printHuffmanTree() const {
+	Node *rootNode = minHeap.top();
+	vector<Node*> level{ rootNode };
+	while (level.size() > 0) {
+		int length = level.size();
+		for (int i = length - 1; i >= 0; i--) {
+			Node *currentNode = level.back();
+			level.pop_back();
+			cout << currentNode->character << ": " << currentNode->frequency << "     ";
+			if (currentNode->left != NULL) level.push_back(currentNode->left);
+			if (currentNode->right != NULL) level.push_back(currentNode->right);
+		}
+		cout << endl;
 	}
 }

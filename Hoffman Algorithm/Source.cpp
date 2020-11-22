@@ -7,10 +7,11 @@ string useBasicTest();
 
 int main() {
 	Huffman run = Huffman(useBasicTest());
-	run.printFrequenciesMap();
+	//run.printFrequenciesMap();
 	return 0;
 }
 
 string useBasicTest() {
-	return "aaabbsdssssd wewwewe23232 dsdsdsds";
+	//return "aakabbsdgssssd we,.wwewe23232 dsdsdsds";
+	return "BCCABBDDAECCBBAEDDCC";
 }
