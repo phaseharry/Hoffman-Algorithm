@@ -12,6 +12,5 @@ int main() {
 }
 
 string useBasicTest() {
-	//return "aakabbsdgssssd we,.wwewe23232 dsdsdsds";
-	return "BCCABBDDAECCBBAEDDCC";
+	return "aakabbsdgssssd we,.wwewe23232 dsdsdsds";
 }

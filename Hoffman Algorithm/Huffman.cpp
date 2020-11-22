@@ -2,6 +2,7 @@
 #include <queue>
 #include <string>
 #include <iostream>
+#include <stack>  
 
 using namespace std;
 
@@ -17,6 +18,7 @@ void Huffman::encode(string str) {
 	encodedString = encodeString(str);
 }
 
+// Encodes a given string once a Huffman Tree has been built
 string Huffman::encodeString(string str) {
 	string encoding = "";
 	for (int i = 0; i < str.length(); i++) {
@@ -25,11 +27,37 @@ string Huffman::encodeString(string str) {
 	return encoding;
 }
 
-void Huffman::decode() {
-	string decodeString = "";
+// Decodes the encoded string
+string Huffman::decode() {
+	string decodedString = "";
 	int i = 0;
 	while (i < encodedString.length()) {
+		decodedString += decodeHelper(i);
+	}
+	cout << decodedString << endl;
+	return decodedString;
+}
 
+// Returns a character once we finished a Huffman code traversal
+char Huffman::decodeHelper(int &idx) {
+	struct Node* currentNode = huffmanTree;
+	stack<Node*> huffmanStack;
+	huffmanStack.push(huffmanTree);
+	while (!huffmanStack.empty()) {
+		Node* currentNode = huffmanStack.top();
+		huffmanStack.pop();
+		// if currentNode does not have a left or right, then we know its a character left node
+		if (currentNode->left == NULL && currentNode->right == NULL) {
+			return currentNode->character;
+		}
+		// go left if the current encoded character == 0, 
+		// else if it equals 1, go right
+		if (encodedString[idx] == '0') {
+			huffmanStack.push(currentNode->left);
+		} else if (encodedString[idx] == '1') {
+			huffmanStack.push(currentNode->right);
+		}
+		idx++;
 	}
 }
 
@@ -90,13 +118,12 @@ void Huffman::printMinHeapVals() {
 	cout << endl;
 }
 
-// After building the Huffman Tree, go to its leaf nodes to the characters
-// and assign the character node's code 
+// After building the Huffman Tree, go to its leaf nodes to the characters and assign the character node's code 
 void Huffman::assignHuffmanCodeToChar(struct Node* node, string str) {
 	if (node->left) assignHuffmanCodeToChar(node->left, str + "0");
 	if (node->right) assignHuffmanCodeToChar(node->right, str + "1");
 	if (!node->left && !node->right) {
-		cout << node->character << ": " << str << endl;
+		//cout << node->character << ": " << str << endl;
 		struct Node *charNode = &characterMap.at(node->character);
 		charNode->code = str;
 	}

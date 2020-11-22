@@ -45,10 +45,11 @@ class Huffman {
 		void buildMinHeap();
 		void assignHuffmanCodeToChar(struct Node* node, string str);
 		string encodeString(string str);
+		char decodeHelper(int &idx);
 	public:
 		Huffman(string str);
 		void encode(string str);
-		void decode();
+		string decode();
 		void printMinHeapVals();
 		void printFrequenciesMap() const;
 		void printHuffmanTree() const;
