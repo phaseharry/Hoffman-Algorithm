@@ -14,6 +14,7 @@ void Huffman::encode(string str) {
 	//printFrequenciesMap();
 	buildMinHeap();
 	buildHuffmanTree();
+	//printHuffmanTree();
 }
 
 void Huffman::buildMinHeap() {
@@ -27,14 +28,17 @@ void Huffman::buildHuffmanTree() {
 	while (minHeap.size() != 1) {
 		left = minHeap.top(); minHeap.pop();
 		right = minHeap.top(); minHeap.pop();
-		cout << left->character << ": " << left->frequency << endl;
-		cout << right->character << ": " << right->frequency << endl << endl;
+		//cout << left->character << ": " << left->frequency << endl;
+		//cout << right->character << ": " << right->frequency << endl;
 		top = new Node('$', left->frequency + right->frequency);
 		//cout << top->character << ": " << top->frequency << endl;
 		top->left = left;
 		top->right = right;
+		//cout << "top left: " << top->left->character << endl;
+	 	//cout << "top right: " << top->right->character << endl << endl;
 		minHeap.push(top);
 	}
+	//cout << "ROOT NODE: " << minHeap.top()->character << ": " << minHeap.top()->frequency << endl;
 	printHuffmanCode(minHeap.top(), "");
 }
 
@@ -73,9 +77,9 @@ void Huffman::printMinHeapVals() {
 }
 
 void Huffman::printHuffmanCode(struct Node* node, string str) const {
-	if (node->left != NULL) printHuffmanCode(node->left, str + "0");
-	if (node->right != NULL) printHuffmanCode(node->right, str + "1");
-	if (node->left == NULL && node->right == NULL) {
+	if (node->left) printHuffmanCode(node->left, str + "0");
+	if (node->right) printHuffmanCode(node->right, str + "1");
+	if (!node->left && !node->right) {
 		cout << node->character << ": " << str << endl;
 	}
 }
@@ -85,9 +89,9 @@ void Huffman::printHuffmanTree() const {
 	vector<Node*> level{ rootNode };
 	while (level.size() > 0) {
 		int length = level.size();
-		for (int i = length - 1; i >= 0; i--) {
-			Node *currentNode = level.back();
-			level.pop_back();
+		for (int i = 0; i < length; i++) {
+			Node *currentNode = level.front();
+			level.erase(level.begin());
 			cout << currentNode->character << ": " << currentNode->frequency << "     ";
 			if (currentNode->left != NULL) level.push_back(currentNode->left);
 			if (currentNode->right != NULL) level.push_back(currentNode->right);
