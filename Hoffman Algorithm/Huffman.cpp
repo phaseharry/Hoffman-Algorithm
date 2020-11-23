@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <stack>  
+#include <bitset>
 
 using namespace std;
 
@@ -24,8 +25,8 @@ void Huffman::encode(string str) {
 	buildCharacterMap(str);
 	buildMinHeap();
 	buildHuffmanTree();
-	printFrequenciesMap();
-	printHuffmanTree();
+	//printFrequenciesMap();
+	//printHuffmanTree();
 	encodedString = encodeString(str);
 	writeEncodedStringToFile();
 	writeDecodedStringToFile();
@@ -44,10 +45,9 @@ string Huffman::encodeString(string str) {
 string Huffman::decode(string str) {
 	string decodedString = "";
 	int i = 0;
-	while (i < encodedString.length()) {
+	while (i < str.length()) {
 		decodedString += decodeHelper(str, i);
 	}
-	cout << decodedString << endl;
 	return decodedString;
 }
 
@@ -118,21 +118,45 @@ void Huffman::assignHuffmanCodeToChar(struct Node* node, string str) {
 	if (node->left) assignHuffmanCodeToChar(node->left, str + "0");
 	if (node->right) assignHuffmanCodeToChar(node->right, str + "1");
 	if (!node->left && !node->right) {
-		//cout << node->character << ": " << str << endl;
 		struct Node *charNode = &characterMap.at(node->character);
 		charNode->code = str;
 	}
 }
 
+// Compresses the encoded string
+string Huffman::compressEncodedString() {
+	string res = "";
+	for (int i = 0; i < encodedString.length(); i += 8) {
+		if (i + 8 >= encodedString.length()) break;
+		char character = byteToCharacter(encodedString.substr(i, i + 8));
+		res += character;
+	}
+	return res;
+}
+
+// Helper method that converts a string of 8 huffman codes into a character (compression)
+char Huffman::byteToCharacter(string byte) {
+	bitset<8> temp(byte);
+	return temp.to_ulong();
+}
+
+// Helper method that turns a character back into 8 huffman codes (decompression)
+string Huffman::characterToByte(char letter) {
+	bitset<8> temp(letter);
+	cout << temp << endl;
+	return temp.to_string();
+}
+
 // Writes the encoded string into an output file
 void Huffman::writeEncodedStringToFile() {
-	ofstream outputFile("encoded-files/" + fileName + ".huf", ios::out | ios::binary);
+	ofstream outputFile("encoded-files/encoded" + fileName, ios::out | ios::binary);
 	if (!outputFile) {
 		cout << "Cannot open file" << endl;
 		return;
 	}
-	for (int i = 0; i < encodedString.length(); i++) {
-		outputFile << encodedString[i];
+	string compressedStr = compressEncodedString();
+	for (int i = 0; i < compressedStr.length(); i++) {
+		outputFile << compressedStr[i];
 	}
 	outputFile.close();
 }
@@ -140,29 +164,26 @@ void Huffman::writeEncodedStringToFile() {
 // Reads from the encoded file and decodes it and writes it the '/decoded-files' path
 void Huffman::writeDecodedStringToFile() {
 	// Read in the encoded file
-	ifstream encodedFile("encoded-files/" + fileName);
+	ifstream encodedFile("encoded-files/encoded" + fileName, ios::in | ios::binary);
 	string text = "";
 	if (encodedFile.is_open()) {
-		string line = "";
-		while (getline(encodedFile, line)) {
-			text += line;
+		char c;
+		while (encodedFile.good()) {
+			encodedFile.get(c);
+			text += characterToByte(c);
 		}
 		encodedFile.close();
 	}
 	// Decode the string using the Huffman Tree
-	string decodedString = "";
-	int i = 0;
-	while (i < text.length()) {
-		decodedString += decodeHelper(text, i);
-	}
+	text = decode(text);
 	// Output it again to verify that it is the same text as the original input
-	ofstream outputFile("decoded-files/" + fileName, ios::out | ios::binary);
+	ofstream outputFile("decoded-files/decoded" + fileName, ios::out);
 	if (!outputFile) {
 		cout << "Cannot open file" << endl;
 		return;
 	}
-	for (int i = 0; i < encodedString.length(); i++) {
-		outputFile << encodedString[i];
+	for (int i = 0; i < text.length(); i++) {
+		outputFile << text[i];
 	}
 	outputFile.close();
 }

@@ -45,9 +45,12 @@ class Huffman {
 		void buildMinHeap();
 		void writeEncodedStringToFile();
 		void writeDecodedStringToFile();
+		string compressEncodedString();
 		void assignHuffmanCodeToChar(struct Node* node, string str);
 		string encodeString(string str);
 		char decodeHelper(string str, int &idx);
+		char byteToCharacter(string byte);
+		string characterToByte(char letter);
 	public:
 		Huffman();
 		void encode(string str);
