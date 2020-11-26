@@ -1,0 +1,102 @@
+Before the city-within-a-city campus that Facebook would come to occupy, the company was housed in two buildings in the down-market part of Palo Alto, east of Stanford’s campus. One, on California Avenue, contained Zuck, Engineering, Ads, and just about everyone involved in making actual product. The second building fronted on the next artery over, Page Mill Road, and housed sales, legal, operations, and everyone involved in the nontechnical side of the Facebook machine. A fleet of tidy white shuttle buses shuffled people between them, and the occasional Facebooker walked the half mile for exercise, or just to see the sun occasionally.
+
+The daylong session known as on-boarding was held in the nontechnical building, so white shuttle it was to Page Mill Road. The conference room was named “Pong” (and yes, the room next to it was “Ping”), a large room meant for presentations. A raised stage lined the back wall, and long, narrow desks, like hedgerows, crossed the room from right to left. As usual, I chose to sit in the front, right under the nose of the speaker, so I could catch every twitch and take the real measure.
+
+An HR person offered some introductory drivel or other, and then it was straight to the first speaker, my superboss, the head of product for Facebook: Chris Cox.
+
+Cox was handsome in the way of a Gosling or Depp: a tempered masculinity encased in a cuddly package, custom-made for female desire. It was a recurring internal joke at Facebook to point out the Twitter storm of oohing and ahhing whenever he took the stage at a Facebook PR event. He had the gift of the gab, which he used to great effect, weaving a seductive narrative around Facebook and the future of media. As the first speaker, he was clearly there to instill the big-picture vision of what we had been selected to help build.
+
+“What is Facebook? Define it for me,” he asked, challenging the rows of attentive faces almost the moment he appeared.
+
+“It’s a social network.” “Wrong! It’s not that at all.”
+
+He scanned the audience for another answer.
+
+Perfectly articulated, to the point I suspected she was a shill, a young, perky intern came out with: “It’s your personal newspaper.”
+
+“Exactly! It’s what I should be reading and thinking about, delivered personally to me every day.”
+He then embarked on a common trope among Valley types, framing a product in some historical continuum of prior technologies, the product currently discussed being the ultimate and inevitable final chapter in the triumphant procession. Radio and TV were depersonalized media of mass consumption, revolutionary for their time, but ultimately lacking. Steadily more focused and fragmented media—topical magazines like Car and Driver, your local newspaper with pull-out sections for your neighborhood continued this trend of increasing personalization. Facebook, however, was the true teleological end goal of modern media.
+
+Facebook was the New York Times of You, Channel You, available for your reading and writing, and to everyone else in the world as well, from the Valley VC to the Wall Street banker to the Indian farmer plowing a field. Everyone would tune in to the channels of their friends, as people once clicked the knob on old cathode-ray television sets, and live in a mediated world of personalized social communication. That the news story in question was written by the Wall Street Journal was incidental: your friend Fred had posted it, your other friend Andy had commented on it, and your wife had shared it with her friends. Here was the first taste for the new Facebook employee of a world interpreted not through traditional institutions like newspapers, books, or even governments or religions, but through the graph of personal relations. You and your friends would redefine celebrity, social worth, and what should be churning through that restless primate brain all day.
+
+Andy Warhol was wrong. In the future, we wouldn’t all be famous for fifteen minutes; we’d be famous 24/7 to fifteen people. That was the new paradigm, even if the outside world didn’t realize it yet. Facebook employees — we few, we happy few — knew what world was coming, and we’d help create it.
+
+It was a good pitch, and the kids in the audience were enraptured. Mission accomplished, Cox flashed a matinee-idol grin and disappeared from the stage in a flash, no doubt off to the other dozen meetings he had that day. I suspected this was a recurring biweekly event for Cox, the rousing speech to the new acolytes. Just the regular speech for king and country, which he had down to the point of studied and flawless spontaneity. Facebook certainly didn’t skimp on putting on a good show.
+The next speaker was Pedram Keyani, an engineering manager in Site Integrity. This was Facebookese, as I’d later learn, for the security team that prevented spammers, pornographers, bots, and various flavors of malignant riffraff from destroying Facebook, or your experience of it. Pedram was one of the conduits of corporate culture that Facebook relied on to perpetuate its unique values. He would lead the bimonthly “hackathons,” which had originated as all-night coding sessions where engineers came up with random ideas that often became successful products (Facebook Video being one such case).* In keeping with the engineering-first cultures of most tech companies since Google, hackathons had also come to serve as pep rally–like pageants of Facebookness, more than mere excuses to code all night and eat crappy Chinese food. As I’d later learn, weirdly pointless versions of them would be held in the regional offices where no engineers even worked, as a sort of pagan celebration of the values of do-it-yourself creation, total commitment to the company, and disruptive innovation.
+
+Pedram was here to expound on those same values. We had gotten the prophetic vision from Cox, precisely the sort of seductive propagandizing a product person does. Now it was time to hear about the martial virtues that would make that vision a reality, which was the engineer’s duty.
+
+A tall, broad-shouldered figure in a Facebook T-shirt who looked as though he worked out, Pedram commanded us in a hectoring tone: “Whatever you learned at your previous job, whatever politics and bullshit you’re bringing with you, just leave all that shit behind.”
+
+Pedram proceeded to describe, with mounting passion, this new world of Facebook, where truth was the only value, selfless collaboration was the rule (“Don’t worry about who gets credit”), and everyone took ownership (technically, if not financially) of what Facebook did.
+Here’s where the genius in the on-boarding, and more broadly in Facebook, really lay. People joined Facebook, and like immigrants at Ellis Island, left their old, dated cultures behind, replacing them with an all-consuming new one. The on-boarding experience was designed precisely as the sort of citizenship oath that new Americans took in front of a flag and a public official. It was almost religious, and taken absolutely sincerely and at face value. Even in a culture brimming with irreverent disdain, I never heard anyone utter a word of cynical trollery about Facebook and its values, either at on-boarding or during my years of work there. As with Americans and “our troops,” motherhood, and the Constitution, certain things were enshrined, and nobody dared ridicule them.
+
+In a posthistorical developed world devoid of transcendent values, whose pantheons look like North Korean grocery stores, bare shelves empty of any gods or heroes, this corporate fascism was intoxicating. Along with the new iPhone and MacBook laptop sitting in front of us, we received a laptop bag with one thing inside: a blue T-shirt emblazoned with Facebook in the trademark Klavika font. On any given day, half of Facebook’s employees would be wearing theirs, and many even photographed (and posted on Facebook, of course) pictures of their children wearing a Facebook onesie as their social media debut. Brownshirts became Blueshirts, and we were all part of the new social media Sturmabteilung.
+
+Cynicism is the last refuge of the shiftless. I don’t cite this absolutist tendency for the cheap sardonic joke, the asshole hipster who’s too cool for school, but also too cool to believe in anything. No, I cite it because I was as seduced as the next guy sitting there in Pong, perhaps even more. The human need for immortality projects—those ends that dole out meaning and purpose beyond ourselves—hasn’t changed since the pyramids. The only difference now is the nature of the putative Holy Land, and the means for achieving it.
+
+After Cox’s rhetoric, and Pedram’s grim injunctions, we broke for a breather.
+The interns huddled in groups of what seemed like old acquaintances; I assumed they knew each other from Berkeley, Stanford, MIT, or wherever they studied. Imagine being a nineteen-year-old undergrad, your entire life mediated by some mixture of Facebook, Twitter, Instagram, et al., and suddenly living and working right in the belly of the beast. If I had been afforded such opportunities at that age, you wouldn’t have been able to shut me up about it with duct tape.
+
+Outside Pong was one of the many microkitchens that dotted campus. They were micro only in comparison with the café kitchens that churned out three meals daily; nor were they really kitchens, in that there was nothing to cook there. Mostly they offered the packaged food, either hypertension or diabetes-causing, that formed the staple diet of a moderately self-destructive university undergraduate. As a concession to crunchy Bay Area sensibilities, there were also bowls of fruit and bins of nuts or granola. I didn’t realize it at the time, but Facebook was on its way to full-on Google levels of employee pampering, and the food in the kitchens would trend more upscale as time went on, going from Snickers to Toblerone, Doritos to authentically spicy Indian chaat snacks.
+
+The coffee also improved, forgoing a generic corporate roast for that of Philz Coffee, the locavore’s coffeehouse that had started in the trendy Mission District. By the time I left, there would be a full-on Philz retail location on campus that served as caffeine fill station, social gathering point, and informal meeting venue. But that was in the still-distant future.
+
+Glucose levels reupped, back into Pong we went.
+Calmly sitting square in a lone chair up front was an Indian-looking dude with curly hair. This man needed no introduction, being famous in a more beyond-Facebook way than Pedram or even Cox. He was Chamath Palihapitiya, one of the men most responsible for Facebook’s success. As head of the Growth team, which wangled new users for Facebook by encouraging things like friending, he had taken Facebook from a small network used mostly by college students to the global online identity, numbering almost a billion people by then.
+
+He was also a competitive poker player and hosted the most legendary home game in Silicon Valley, featuring regular appearances by an all-star cast of investors and entrepreneurs, as well as the occasional poker professional or celebrity athlete. Poker was behind the best-known Chamath story, which I’d hear recounted more than once, and which perhaps best illustrates his sharklike competitiveness.
+
+After an all-night high-stakes game, Chamath walks out fifty thousand dollars ahead. Deciding he needs some German rolling iron stat, he goes to a BMW dealership. The salesman, spotting a badly dressed kid, gives him the cold shoulder, and refuses a test drive. So Chamath heads over to the Mercedes dealership across the street. There, they don’t ignore him, and he buys a car for cash on the spot. Then he drives back to the BMW dealership with his new Benz, finds the sales guy who blew him off, and shows him the sale he lost. That’s who we were dealing with here.
+
+“Look, we’re not here to fuck around. You’re at Facebook now, and we’ve got lots to do.”
+
+His spiel was the iron hand inside the velvet glove of on-boarding. Make an impact, get in over your head, done is better than perfect, and various other rallying cries shouted from posters dotting every wall, and we’d soon find they were also taped to our new desk monitors, in case we had missed them. This was the tenor of Chamath’s somewhat rambling harangue, punctuated with lots of f-bombs, delivered in the clipped, machine gun cadence of the Wall Street floor trader, which he’d been early in his career.
+
+“So just fucking do it,” he concluded, after twenty minutes of hectoring.
+
+Chamath hadn’t moved during his jeremiad, sitting square-shouldered, hands gripping the rear legs of his chair tightly. When he stood to leave the stage, he did so without so much as looking at anyone.
+
+Everyone seemed to be slightly gobsmacked, as when a film director hits the audience with a cinematic plot twist in the last few seconds of a movie, and a stunned silence washes over the crowd as the credits began to roll.
+For our next lecture, the founding legends of Facebook were replaced by the stiff and formal sheriffs of corporate propriety known as HR. Two of them took the stage, sitting side by side, a male and a female, almost as if you needed one of each gender present to discuss the sensitive stuff.
+
+Like Jesus speaking to his apostles, Facebook often imparted nuggets of its culture in the form of parables. The parable here concerned a misguided Facebook employee who leaked news of a soon-to-be-launched product to the tech press. Zuck reacted via a to-all email with the subject line “Please resign,” an alarming presence in anybody’s inbox. The email, which was projected onto the screen in Pong and read line by line, encouraged whoever had leaked to resign immediately, and excoriated the perpetrator for his or her base moral nature, highlighting how he or she had betrayed the team. The moral to this story, a parable of the prodigal son but with an unforgiving father, was clear: fuck with Facebook and security guards would be hustling you out the door like a rowdy drunk at the late-night Taco Bell.
+
+Lesson imparted, time for that close second in Facebook priority: discretion.
+
+As the curator of the largest collection of personal data outside of the NSA, Facebook was ripe for unprincipled internal abuse. Not only was such abuse unethical, but the PR hit from a story getting out about a jealous employee who stalked his wife, or immature interns checking out a celebrity’s messages, would be monumental and hugely embarrassing. As it was, people were wary of this druglike service called Facebook, with which they shared their most intimate human experiences, but also subconsciously resented and feared. Anything less than the strictest discretion would threaten to revoke the tenuous pass that hundreds of millions of users had granted that dark-blue box to mediate their lives.
+
+I would personally know at least one person who’d get bitten with this, and be terminated after “the Sec,” as internal Facebook security was called, found out they were looking at profiles without an official reason. It was that simple: even try, and we’ll catch you, and you’ll be out of here so fast we’ll need to send a cleanup crew to remove the still-warm coffee mug from your desk.
+
+The crowd took in all of this silently, with at most the occasional murmur or hint of furtive chatting between neighbors. The rousing buzz of the first speakers lingered; this HR session was like the DUI check you had to negotiate while driving home from a particularly convivial party. The cops seemed amenable, if a bit stern, as they went through their script.
+Then, we came to the juicy frivolities. Here, the male (oddly) took the lead and stood up to address the new employees.
+
+Picture the Facebook corporate scene for a moment: buildings full of young, emotionally inept male geeks, and sprinkled throughout them, maybe a 10% population of young women. What could possibly go wrong?
+
+Rather than harshly regulate every step of this sexual-legal minefield, Facebook preferred to lay down basic guidelines. Delicately, but unambiguously, our HR Man stated that we could ask a coworker out once, but no meant no, and you had no more lets after that. After one ask, you were done, and anything beyond that was subject to sanction.
+
+So you get one shot on goal, do you? I thought. Better use that one shot wisely.
+
+Next was a warning to the womenfolk. Our male HR authority, with occasional backup from his female counterpart, launched into a speech about avoiding clothing that “distracted” coworkers. I’d later learn that managers did in fact occasionally pull aside female employees and read them the riot act. One such example happened in Ads, with an intern who looked about sixteen coming in regularly in booty shorts. It was almost laughably inappropriate, but such was our disinhibited age.
+For a grand finale . . . obscenity!
+
+Among the odder forms we had had to sign as employees was one exonerating Facebook from any liability from obscenity. Whatever we saw or overheard, while at Facebook, could not be subject to litigation. It wasn’t clear to me if this was due to, say, pornography on the site that we’d run across when screening it, or the remains of the bro-y culture that echoed occasionally with a dick joke or some guy passed out from happy hour in his underwear.
+
+“We don’t want to create a culture where someone is going to HR to complain every day. If someone says something, call them out on it. Hopefully, it stops there, and you go on with your day.” Show over. We all grabbed our swag bag, laptop, and phone, and got the hell out of there.
+
+Back at my new desk in the Ads area, I fired up the laptop. Already, there were two emails waiting. One was pro forma and simply stated “Welcome to Facebook.” The other was an email from the task-tracking system, indicating I had been assigned several bugs to fix. Like every other engineer, despite my also being a product manager, I’d need to go through the engineering boot camp, the six-week course that ingested you a n00b and output you a Facebook engineer.* It was also a weeding mechanism that provided management with the first flag on potentially bad hires.
+
+Via accelerated courses in front-end code, back-end infrastructure, and everything in between, we learned the Facebook way. The company had a seemingly genetic inclination for home- brewing almost every element of its technical stack, using opensource languages or tools occasionally, but then customizing them to the point where they were more Facebook than anything else. Since even seasoned engineers came from a completely different universe, it was necessary to indoctrinate them in the One True Way. For new grads fresh out of school, with no knowledge of how real production engineering worked, their entire technical world-view would be molded to conform with Facebook’s. Forever after, even while working at other companies, they’d drag along those prejudices and attitudes as if they were God’s revealed truth. The Googlers now at Facebook had surely done the same.
+I had five bugs to fix. I didn’t even know how to code PHP, the front-end language Facebook was written in. It was a famously crappy language and development environment with few users those days, chosen merely because that’s what Zuck knew as a hacker at Harvard.
+
+Following the online documentation, I successfully set up a dev server, the machine on which I’d develop code, kind of like a personal sandbox. I then pulled an entire version of Facebook’s code from the main repository, browsing all of it via an editor.
+
+So this is what all the fuss was about, huh?
+
+For giggles, I changed the text of the Like button to an obscenity, saved the code, hit Reload in my browser, which pointed to my private version of Facebook, and indeed, I could now copulate with everything on the Web.
+
+I was well on my way.
+
+* In a story that became FB lore, Zuckerberg had actually shot down the idea of launching the primitive Facebook Video product. The engineers involved ignored him and locked themselves into a conference room for days to finish it, launching it against Zuck’s wishes. Facebook is now the second biggest video-sharing site, after Google’s YouTube.
+
+* “N00b” is hacker-speak for newbie, or beginner. In online coding forums, it’s a term of withering contempt for someone obviously out of his or her depth. At Facebook, it was used semi-affectionately for a new hire.
