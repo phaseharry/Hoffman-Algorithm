@@ -50,6 +50,8 @@ class Huffman {
 		string encodeString(string str);
 		char decodeHelper(string str, int &idx);
 		char byteToCharacter(string byte);
+		void deleteHuffmanTree(Node* charNode);
+		void clearPrevious();
 		string characterToByte(char letter);
 	public:
 		Huffman();

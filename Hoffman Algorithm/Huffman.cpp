@@ -11,13 +11,11 @@ using namespace std;
 Huffman::Huffman() {}
 
 void Huffman::run(string str, string file) {
-	encodedString = "";
-	huffmanTree = NULL;
-	characterMap.clear();
-	minHeap = priority_queue<Node*, vector<Node*>, CompareCharNodes>();
 	fileName = file;
 	encode(str);
-	//decode(encodedString);
+	writeEncodedStringToFile();
+	writeDecodedStringToFile();
+	clearPrevious();
 }
 
 // Encodes the string by making a Huffman tree and turning the string into a encoded binary string 
@@ -28,8 +26,6 @@ void Huffman::encode(string str) {
 	//printFrequenciesMap();
 	//printHuffmanTree();
 	encodedString = encodeString(str);
-	writeEncodedStringToFile();
-	writeDecodedStringToFile();
 }
 
 // Encodes a given string once a Huffman Tree has been built
@@ -143,7 +139,6 @@ char Huffman::byteToCharacter(string byte) {
 // Helper method that turns a character back into 8 huffman codes (decompression)
 string Huffman::characterToByte(char letter) {
 	bitset<8> temp(letter);
-	cout << temp << endl;
 	return temp.to_string();
 }
 
@@ -221,4 +216,22 @@ void Huffman::printHuffmanTree() const {
 		}
 		cout << endl;
 	}
+}
+
+// Helper method to delete a huffman tree after an encoding & decoding was done so there won't be 
+// a memory leak when it gets replaced by a new huffman tree for another file
+void Huffman::deleteHuffmanTree(Node* charNode) {
+	if (!charNode) return;
+	if (charNode->left) deleteHuffmanTree(charNode->left);
+	if (charNode->right) deleteHuffmanTree(charNode->right);
+	delete charNode;
+}
+
+// Clears the previous run for a file. (destroys minHeap & huffman tree)
+void Huffman::clearPrevious() {
+	encodedString.clear();
+	huffmanTree = NULL;
+	characterMap.clear();
+	minHeap = priority_queue<Node*, vector<Node*>, CompareCharNodes>();
+	deleteHuffmanTree(huffmanTree);
 }
