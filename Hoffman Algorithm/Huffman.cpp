@@ -230,8 +230,8 @@ void Huffman::deleteHuffmanTree(Node* charNode) {
 // Clears the previous run for a file. (destroys minHeap & huffman tree)
 void Huffman::clearPrevious() {
 	encodedString.clear();
+	deleteHuffmanTree(huffmanTree);
 	huffmanTree = NULL;
 	characterMap.clear();
 	minHeap = priority_queue<Node*, vector<Node*>, CompareCharNodes>();
-	deleteHuffmanTree(huffmanTree);
 }
