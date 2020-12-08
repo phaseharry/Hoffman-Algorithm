@@ -31,7 +31,7 @@ int main() {
 		"MichelleObama2016DNC.txt",
 		"SnowdenInterview.txt",
 	};
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 20; i++) {
 		callHuffmanOnFile(huffmanAlgorithm, fileNames[i]);
 	}
 	return 0;

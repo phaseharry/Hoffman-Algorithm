@@ -221,7 +221,7 @@ void Huffman::printHuffmanTree() const {
 // Helper method to delete a huffman tree after an encoding & decoding was done so there won't be 
 // a memory leak when it gets replaced by a new huffman tree for another file
 void Huffman::deleteHuffmanTree(Node* charNode) {
-	if (!charNode) return;
+	if (charNode == NULL || charNode == nullptr) return;
 	if (charNode->left) deleteHuffmanTree(charNode->left);
 	if (charNode->right) deleteHuffmanTree(charNode->right);
 	delete charNode;
@@ -230,8 +230,8 @@ void Huffman::deleteHuffmanTree(Node* charNode) {
 // Clears the previous run for a file. (destroys minHeap & huffman tree)
 void Huffman::clearPrevious() {
 	encodedString.clear();
-	deleteHuffmanTree(huffmanTree);
 	huffmanTree = NULL;
+	deleteHuffmanTree(huffmanTree);
 	characterMap.clear();
 	minHeap = priority_queue<Node*, vector<Node*>, CompareCharNodes>();
 }
