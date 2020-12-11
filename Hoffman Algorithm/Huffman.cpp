@@ -49,9 +49,8 @@ string Huffman::decode(string str) {
 
 // Returns a character once we finished a Huffman code traversal
 char Huffman::decodeHelper(string str, int &idx) {
-	struct Node* currentNode = huffmanTree;
 	stack<Node*> huffmanStack;
-	huffmanStack.push(huffmanTree);
+	huffmanStack.push(huffmanTree); // first node will be the root node
 	while (!huffmanStack.empty()) {
 		Node* currentNode = huffmanStack.top();
 		huffmanStack.pop();
@@ -81,10 +80,10 @@ void Huffman::buildMinHeap() {
 // Builds the Huffman Tree and then assigns the code to the Character Nodes
 void Huffman::buildHuffmanTree() {
 	struct Node *left, *right, *top;
-	while (minHeap.size() != 1) {
-		left = minHeap.top(); minHeap.pop();
-		right = minHeap.top(); minHeap.pop();
-		top = new Node('$', left->frequency + right->frequency);
+	while (minHeap.size() > 1) {
+		left = minHeap.top(); minHeap.pop(); // getting node with smallest freq & popping it
+		right = minHeap.top(); minHeap.pop(); // getting next node with smallest freq & popping it
+		top = new Node('@', (left->frequency + right->frequency)); // creating a new node (call it intermediate node that connects the actual character nodes)
 		top->left = left;
 		top->right = right;
 		minHeap.push(top);
@@ -231,7 +230,7 @@ void Huffman::deleteHuffmanTree(Node* charNode) {
 void Huffman::clearPrevious() {
 	encodedString.clear();
 	huffmanTree = NULL;
-	deleteHuffmanTree(huffmanTree);
+	//deleteHuffmanTree(huffmanTree);
 	characterMap.clear();
 	minHeap = priority_queue<Node*, vector<Node*>, CompareCharNodes>();
 }
