@@ -23,8 +23,8 @@ void Huffman::encode(string str) {
 	buildCharacterMap(str);
 	buildMinHeap();
 	buildHuffmanTree();
-	//printFrequenciesMap();
-	//printHuffmanTree();
+	printFrequenciesMap();
+	printHuffmanTree();
 	encodedString = encodeString(str);
 }
 
@@ -83,7 +83,7 @@ void Huffman::buildHuffmanTree() {
 	while (minHeap.size() > 1) {
 		left = minHeap.top(); minHeap.pop(); // getting node with smallest freq & popping it
 		right = minHeap.top(); minHeap.pop(); // getting next node with smallest freq & popping it
-		top = new Node('@', (left->frequency + right->frequency)); // creating a new node (call it intermediate node that connects the actual character nodes)
+		top = new Node(left->frequency + right->frequency); // creating a new node (call it intermediate node that connects the actual character nodes)
 		top->left = left;
 		top->right = right;
 		minHeap.push(top);

@@ -13,6 +13,11 @@ struct Node {
 	int frequency;
 	string code;
 	struct Node *left, *right;
+	Node(int freq) {
+		character = NULL; // used for intermediary nodes
+		frequency = freq;
+		left = right = NULL;
+	}
 	Node(char ch) {
 		character = ch;
 		frequency = 1;
